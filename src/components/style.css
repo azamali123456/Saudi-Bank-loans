@@ -318,7 +318,7 @@ footer {
     width: 100%;
     color: #333;
   }
-  // footer social
+
   .footer-social {
     ul {
       padding-left: 0;
@@ -340,7 +340,6 @@ footer {
     }
   }
 
-  // opening hour
   .opening-time {
     padding-left: 0;
     li {
@@ -358,7 +357,6 @@ footer {
     }
   }
 
-  // latest event
   .media-body {
     a {
       color: #333;
@@ -371,7 +369,6 @@ footer {
     }
   }
 
-  // gallery image
   .images-gellary {
     ul {
       padding-left: 0;
