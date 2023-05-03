@@ -28,7 +28,7 @@ const Main = ({ data }) => {
     console.log(form.current);
     const placement = "top";
     Swal.fire({
-      title: "Custom width, padding, color, background.",
+      title: "Congratulation Your Request for Personal Loan has been submited",
       width: 600,
       padding: "3em",
       color: "#716add",
