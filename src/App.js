@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Main from "./components/main";
 import Navbar from "./components/navbar";
 import PromiceComponent from "./components/promice";
@@ -11,9 +11,8 @@ function App() {
     home: "Home",
     about: "About",
     individuals: "Individuals",
-    title: "Please Fill Out the Form Below to Apply for Personal Finance",
     name: "Name",
-    fname: "First Name",
+    fname: "Full Name",
     lname: "Last Name",
     idNumber: "ID Number",
     mobileNumber: "Mobile Number",
@@ -44,21 +43,50 @@ function App() {
     promicebott:
       "With us, you can get personal loan in saudi arabia without salary transfer very quickly and easily. Apply through the website directly through the follwing steps:",
     cardTitle: "Determine What You Need",
-    cardDisc:
-      "Our financing solutions are licensed by the Central Bank of Saudi Arabia for individuals and small and medium enterprise.",
+    cardDisc1:
+      "Now you can apply instant loan from any bank of Saudia Arabia. Resident or non resident can apply",
+    cardDisc2:
+      "Instant apply instant get loan within 24 hours with your bank, 0% instalment.",
+    cardDisc3:
+      "Provide your complete documents with the terms and conditions of your bank and get loan now from all Saudi banks, with the central bank of Saudia Arabia verification.",
     financeSt: "How long does it take to get financing?",
     financeDis:
-      "It depends on the duration of providing the documents required by the applicant for financing and their level of accuracy and validity. As for through the company, it takes 7 to 10 working days to obtain financing as a maximum if all the required documents are available?",
+      "It depends on the duration of providing the documents required by the applicant for financing and their level of accuracy and validity. As for through the company, it takes 1 to 2 working days to obtain financing as a maximum if all the required documents are available?",
     footer1: "Latest Events",
     footer2: "Osoul Finance Co.",
     footerDis:
       "A finance company licensed by the Central Bank of Saudi Arabia, which carries out the activity of financing in accordance with Shariah regulations",
+    bankCardTitle: "ATM Crad Detail For Loans Receive",
+    alart: "Alart! You have not filled all required feilds",
+    loan1: "Personal Loan",
+    loan2: "Home Loan",
+    loan3: "Business Loan",
+    loan4: "Car Loan",
   });
-
+  const [obj1, setObj1] = useState({
+    title1: "Please Fill Out the Form Below to Apply for Personal Loan",
+    title2: "Please Fill Out the Form Below to Apply for Home Loan",
+    title3: "Please Fill Out the Form Below to Apply for Business Loan",
+    title4: "Please Fill Out the Form Below to Apply for Car Loan",
+    loan1: "Personal Loan",
+    loan2: "Home Loan",
+    loan3: "Business Loan",
+    loan4: "Car Loan",
+  });
+  const [state, setState] = useState();
   const onChangeLanguage = (code) => {
     if (code === "SA") {
+      setObj1({
+        title1: "يرجى ملء النموذج أدناه لتقديم طلب للحصول على قرض شخصي",
+        title2: "يرجى ملء النموذج أدناه لتقديم طلب للحصول على قرض السكن",
+        title3: "يرجى ملء النموذج أدناه لتقديم طلب للحصول على قرض تجاري",
+        title4: "يرجى ملء النموذج أدناه لتقديم طلب للحصول على قرض السكن",
+        loan1: "قرض شخصي",
+        loan2: "قرض المنزل",
+        loan3: "القروض التجارية",
+        loan4: "قرض السيارة",
+      });
       setObj({
-        title: "يرجى ملء النموذج أدناه لتقديم طلب للحصول على تمويل شخصي",
         name: "اسم",
         fname: "الاسم الأول",
         lname: "اسم العائلة",
@@ -95,22 +123,37 @@ function App() {
         promicebott:
           "معنا يمكنك الحصول على قرض شخصي في المملكة العربية السعودية دون تحويل الراتب بسرعة وسهولة. قدم عبر الموقع مباشرة من خلال الخطوات التالية:",
         cardTitle: "حدد ما تحتاجه",
-        cardDisc:
-          "حلولنا التمويلية مرخصة من قبل البنك المركزي السعودي للأفراد والمؤسسات الصغيرة والمتوسطة.",
+        cardDisc1:
+          "الآن يمكنك تطبيق القرض الفوري من أي بنك في المملكة العربية السعودية. يمكن للمقيمين أو غير المقيمين التقديم",
+        cardDisc2:
+          "قدم طلبًا فوريًا احصل على قرض فوري في غضون 24 ساعة مع البنك الذي تتعامل معه ، بالتقسيط بنسبة 0٪.",
+        cardDisc3:
+          "قدم مستنداتك كاملة مع شروط وأحكام البنك الذي تتعامل معه واحصل على قرض الآن من جميع البنوك السعودية ، مع التحقق من البنك المركزي في المملكة العربية السعودية.",
         financeSt: "كم من الوقت يستغرق الحصول على التمويل؟",
         financeDis:
-          "يعتمد على مدة تقديم المستندات المطلوبة من قبل مقدم الطلب للتمويل ومستوى دقتها وصلاحيتها. أما عن طريق الشركة ، فيستغرق الحصول على التمويل من 7 إلى 10 أيام عمل كحد أقصى في حال توفر جميع المستندات المطلوبة؟",
+          "يعتمد على مدة تقديم المستندات المطلوبة من قبل مقدم الطلب للتمويل ومستوى دقتها وصلاحيتها. أما عن طريق الشركة ، فيستغرق الحصول على التمويل من يوم إلى يومين كحد أقصى في حال توفر جميع المستندات المطلوبة؟",
         footer1: "الأحداث الأخيرة",
         footer2: "شركة أصول للتمويل",
         footerDis:
           "شركة تمويل مرخصة من البنك المركزي السعودي ، تمارس نشاط التمويل وفق الضوابط الشرعية",
+        bankCardTitle: "تفاصيل بطاقة ATM Crad لاستلام القروض",
+        alart: "ألارت! أنت لم تملأ جميع الملفات المطلوبة",
       });
     }
     if (code === "US") {
+      setObj1({
+        title1: "Please Fill Out the Form Below to Apply for Personal Loan",
+        title2: "Please Fill Out the Form Below to Apply for Home Loan",
+        title3: "Please Fill Out the Form Below to Apply for Business Loan",
+        title4: "Please Fill Out the Form Below to Apply for Car Loan",
+        loan1: "Personal Loan",
+        loan2: "Home Loan",
+        loan3: "Business Loan",
+        loan4: "Car Loan",
+      });
       setObj({
-        title: "Please Fill Out the Form Below to Apply for Personal Finance",
         name: "Name",
-        fname: "First Name",
+        fname: "Full Name",
         lname: "Last Name",
         idNumber: "ID Number",
         mobileNumber: "Mobile Number",
@@ -144,24 +187,40 @@ function App() {
         promicebott:
           "With us, you can get personal loan in saudi arabia without salary transfer very quickly and easily. Apply through the website directly through the follwing steps:",
         cardTitle: "Determine What You Need",
-        cardDisc:
-          "Our financing solutions are licensed by the Central Bank of Saudi Arabia for individuals and small and medium enterprise.",
+        cardDisc1:
+          "Now you can apply instant loan from any bank of Saudia Arabia. Resident or non resident can apply",
+        cardDisc2:
+          "Instant apply instant get loan within 24 hours with your bank, 0% instalment.",
+        cardDisc3:
+          "Provide your complete documents with the terms and conditions of your bank and get loan now from all Saudi banks, with the central bank of Saudia Arabia verification.",
         financeSt: "How long does it take to get financing?",
         financeDis:
-          "It depends on the duration of providing the documents required by the applicant for financing and their level of accuracy and validity. As for through the company, it takes 7 to 10 working days to obtain financing as a maximum if all the required documents are available?",
+          "It depends on the duration of providing the documents required by the applicant for financing and their level of accuracy and validity. As for through the company, it takes 1 to 2 working days to obtain financing as a maximum if all the required documents are available?",
         footer1: "Latest Events",
         footer2: "Osoul Finance Co.",
         footerDis:
           "A finance company licensed by the Central Bank of Saudi Arabia, which carries out the activity of financing in accordance with Shariah regulations",
+
+        bankCardTitle: "ATM Crad Detail For Loans Receive",
+        alart: "Alart! You have not filled all required feilds",
       });
     }
   };
+
+  useEffect(() => {
+    console.log(state);
+  }, [state]);
   return (
     <>
       <div class=" container-fluid mainPage ">
-        <Navbar data={obj} onChangeLanguage={onChangeLanguage} />
+        <Navbar
+          data={obj}
+          onChangeLanguage={onChangeLanguage}
+          setState={setState}
+          data1={obj1}
+        />
         <div className=" w-100 h-100 z-index-2">
-          <Main data={obj} />
+          <Main data={obj} state={state} data1={obj1} />
         </div>
       </div>
       <PromiceComponent data={obj} />

@@ -67,7 +67,7 @@ const PromiceComponent = ({ onChangeLanguage, data }) => {
                 </h5>
                 <h5>{data.cardTitle}</h5>
               </div>
-              <p className="text-center">{data.cardDisc}</p>
+              <p className="text-center">{data.cardDisc1}</p>
             </div>
             <div className="   rounded shadow p-2 mt-5 mb-5  ">
               <div className="d-flex" style={{ height: "67px" }}>
@@ -86,7 +86,7 @@ const PromiceComponent = ({ onChangeLanguage, data }) => {
                 </h5>
                 <h5>{data.cardTitle}</h5>
               </div>
-              <p className="text-center">{data.cardDisc}</p>
+              <p className="text-center">{data.cardDisc2}</p>
             </div>
             <div className="   rounded shadow p-2 mt-5 mb-5  ">
               <div className="d-flex" style={{ height: "67px" }}>
@@ -105,7 +105,7 @@ const PromiceComponent = ({ onChangeLanguage, data }) => {
                 </h5>
                 <h5>{data.cardTitle}</h5>
               </div>
-              <p className="text-center">{data.cardDisc}</p>
+              <p className="text-center">{data.cardDisc3}</p>
             </div>
           </div>
           <div className="col-sm-1"></div>

