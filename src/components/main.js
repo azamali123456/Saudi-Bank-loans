@@ -164,7 +164,19 @@ const Main = ({ data, state, data1 }) => {
                     }}
                   />
                 </div>
-
+                <div className="input-container mt-2 ">
+                  <label className="text-dark p-1" htmlFor="Address">
+                    <strong>{data.city}</strong>{" "}
+                    <strong className="text-danger float-left">*</strong>
+                  </label>
+                  <input
+                    type="text"
+                    name="address"
+                    onChange={(e) => {
+                      setCity(e.target.value);
+                    }}
+                  />
+                </div>
                 <div className="input-container mt-2 ">
                   <strong className="text-dark">
                     {data.employer}{" "}
@@ -228,19 +240,6 @@ const Main = ({ data, state, data1 }) => {
                     placeholder="10000 SAR-5000000 SAR"
                     onChange={(e) => {
                       setfinancialAmount(e.target.value);
-                    }}
-                  />
-                </div>
-                <div className="input-container mt-2 ">
-                  <label className="text-dark p-1" htmlFor="Address">
-                    <strong>{data.city}</strong>{" "}
-                    <strong className="text-danger float-left">*</strong>
-                  </label>
-                  <input
-                    type="text"
-                    name="address"
-                    onChange={(e) => {
-                      setCity(e.target.value);
                     }}
                   />
                 </div>
