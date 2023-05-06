@@ -16,7 +16,7 @@ const FooterComponent = ({ data }) => {
                     class="contact-link"
                     style={{ textDecoration: "none" }}
                   >
-                    saudibanklimited@example.com
+                    saudicentralbank-gov.com
                   </a>
                   <a
                     href="mailto:support@example.com"
@@ -24,10 +24,10 @@ const FooterComponent = ({ data }) => {
                     style={{ textDecoration: "none" }}
                   >
                     {" "}
-                    bank@example.com{" "}
+                    adeel.ahmed0678@gmail.com{" "}
                   </a>
                   <a href="tel:0121234" class="contact-link">
-                    (123) 456-789
+                    (+966) 58 368 4692
                   </a>
                 </div>
                 <img
