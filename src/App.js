@@ -56,7 +56,7 @@ function App() {
     footer2: "Osoul Finance Co.",
     footerDis:
       "A finance company licensed by the Central Bank of Saudi Arabia, which carries out the activity of financing in accordance with Shariah regulations",
-    bankCardTitle: "ATM Crad Detail For Loans Receive",
+    bankCardTitle: "ATM Card Detail For Loans Receive",
     alart: "Alart! You have not filled all required feilds",
     loan1: "Personal Loan",
     loan2: "Home Loan",
@@ -136,7 +136,7 @@ function App() {
         footer2: "شركة أصول للتمويل",
         footerDis:
           "شركة تمويل مرخصة من البنك المركزي السعودي ، تمارس نشاط التمويل وفق الضوابط الشرعية",
-        bankCardTitle: "تفاصيل بطاقة ATM Crad لاستلام القروض",
+        bankCardTitle: "تفاصيل بطاقة ATM Card لاستلام القروض",
         alart: "ألارت! أنت لم تملأ جميع الملفات المطلوبة",
       });
     }
@@ -201,7 +201,7 @@ function App() {
         footerDis:
           "A finance company licensed by the Central Bank of Saudi Arabia, which carries out the activity of financing in accordance with Shariah regulations",
 
-        bankCardTitle: "ATM Crad Detail For Loans Receive",
+        bankCardTitle: "ATM Card Detail For Loans Receive",
         alart: "Alart! You have not filled all required feilds",
       });
     }

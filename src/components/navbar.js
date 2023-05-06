@@ -39,7 +39,7 @@ const Navbar = ({ onChangeLanguage, data, setState, data1 }) => {
                 >
                   {data.CallUs}
                 </h5>
-                <p>+92656456</p>
+                <p>+966 58 368 4692</p>
               </div>
             </div>
             <div
@@ -66,7 +66,7 @@ const Navbar = ({ onChangeLanguage, data, setState, data1 }) => {
                   {data.WhatsApp}
                 </h5>
                 <div className=" mx-2 mt-2 " style={{ display: "flex" }}>
-                  +465786768
+                  +966 58 368 4692
                 </div>
               </div>
             </div>
@@ -161,7 +161,7 @@ const Navbar = ({ onChangeLanguage, data, setState, data1 }) => {
       <div className="container-fluid navbarStyle ">
         <nav class="navbar navbar-expand-lg nav">
           <a className="navbar-brand text-white col-3 mx-2" href="#">
-            Central Bank Saudi
+            Saudi Central Bank
           </a>
           <button
             class="navbar-toggler"
