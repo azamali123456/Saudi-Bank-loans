@@ -237,7 +237,7 @@ const Main = ({ data, state, data1 }) => {
                   <input
                     type="number"
                     name="finance_amount"
-                    placeholder="10000 SAR-5000000 SAR"
+                    placeholder="1 Lakh to million SAR"
                     onChange={(e) => {
                       setfinancialAmount(e.target.value);
                     }}
