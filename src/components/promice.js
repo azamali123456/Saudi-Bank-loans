@@ -36,7 +36,7 @@ const PromiceComponent = ({ onChangeLanguage, data }) => {
         <div className="row mt-5">
           <div className="col-sm-7">
             {" "}
-            {/* <svg
+            <svg
               xmlns="http://www.w3.org/2000/svg"
               width="330"
               height="350"
@@ -50,8 +50,8 @@ const PromiceComponent = ({ onChangeLanguage, data }) => {
                 // borderRadius: "200px",
                 padding: "40px",
               }}
-            ></svg> */}
-            <img
+            ></svg>
+            {/* <img
               className="mt-5 mx-5"
               style={{
                 width: "60%",
@@ -62,7 +62,7 @@ const PromiceComponent = ({ onChangeLanguage, data }) => {
               }}
               src="https://osoulmodern.com/wp-content/uploads/2022/07/company-icon3d-290x300.png"
               alt="image is not loaded"
-            />
+            /> */}
           </div>
           <div className="col-sm-4">
             <div className="   rounded shadow p-2 mt-5 mb-5 ">
