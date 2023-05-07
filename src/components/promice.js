@@ -50,7 +50,7 @@ const PromiceComponent = ({ onChangeLanguage, data }) => {
                 // borderRadius: "200px",
                 padding: "40px",
               }}
-              src="https://osoulmodern.com/wp-content/uploads/2022/07/company-icon3d-290x300.png"
+              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-todo-list/check1.webpg"
               alt="image is not loaded"
             />
           </div>
