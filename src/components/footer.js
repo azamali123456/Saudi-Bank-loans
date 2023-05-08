@@ -16,7 +16,7 @@ const FooterComponent = ({ data }) => {
                     class="contact-link"
                     style={{ textDecoration: "none" }}
                   >
-                    saudicentralbank-gov.com
+                    saudibankloans.vercel.app
                   </a>
                   <a
                     href="mailto:support@example.com"
