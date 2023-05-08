@@ -24,7 +24,7 @@ const FooterComponent = ({ data }) => {
                     style={{ textDecoration: "none" }}
                   >
                     {" "}
-                    adeel.ahmed0678@gmail.com{" "}
+                    saudibankloans@gmail.com{" "}
                   </a>
                   <a href="tel:0121234" class="contact-link">
                     (+966) 58 368 4692

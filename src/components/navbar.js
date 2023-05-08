@@ -192,7 +192,10 @@ const Navbar = ({ onChangeLanguage, data, setState, data1 }) => {
             <ul
               class="navbar-nav  d-flex  "
               style={{
+                position: "relative",
+                top: "2px",
                 display: "flex",
+                background: "#40465a",
               }}
             >
               <li class="nav-item active col-1">
@@ -215,7 +218,7 @@ const Navbar = ({ onChangeLanguage, data, setState, data1 }) => {
                 class="nav-item col-2"
                 style={{ position: "relative", left: "-23px" }}
               >
-                <a class="nav-link " href="#">
+                <a class=" lang2 mt-2 " href="#">
                   <div className=" language">
                     <ReactFlagsSelect
                       countries={["US", "SA"]}
@@ -234,6 +237,21 @@ const Navbar = ({ onChangeLanguage, data, setState, data1 }) => {
             </ul>
           </div>
         </nav>
+        <a class=" lang1" href="#">
+          <div className=" language">
+            <ReactFlagsSelect
+              countries={["US", "SA"]}
+              customLabels={{
+                US: "English",
+                SA: "العربية",
+              }}
+              selected={selected}
+              placeholder="English"
+              onSelect={(code) => onChangeLanguage(code)}
+              className="mt-0 text-dark p-1 "
+            />
+          </div>
+        </a>
       </div>
     </>
   );

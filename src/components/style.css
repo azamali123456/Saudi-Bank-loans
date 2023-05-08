@@ -6,6 +6,10 @@
   background-color: transparent;
   border: 1px solid transparent;
 }
+.lang1 {
+  position: none;
+  display: none;
+}
 input {
   background-color: transparent;
   color: #777;
@@ -210,6 +214,13 @@ div .textHover:hover {
     position: relative;
     left: -23.8px;
   }
+  .lang1 {
+    position: relative;
+    display: none;
+  }
+  .lang2 {
+    display: block;
+  }
 }
 /* .contact {
   display: none !important;
@@ -223,6 +234,17 @@ div .textHover:hover {
     top: 0px;
     background: #40465a;
     border-radius: 4px;
+  }
+  .lang1 {
+    position: relative;
+    display: block;
+    background-color: #40465a;
+    left: -1px;
+    width: 104%;
+    top: -8px;
+  }
+  .lang2 {
+    display: none;
   }
   .dropdown {
     position: relative !important;
@@ -265,6 +287,17 @@ div .textHover:hover {
   /*Big smartphones [426px -> 600px]*/
 }
 @media only screen and (max-width: 425px) {
+  .lang1 {
+    position: relative;
+    display: block;
+    background-color: #40465a;
+    left: -1px;
+    width: 104%;
+    top: -8px;
+  }
+  .lang2 {
+    display: none;
+  }
   .nav {
     position: relative;
     top: 0px;
