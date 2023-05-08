@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./style.css";
-
+import image from "./newone.png";
 const PromiceComponent = ({ onChangeLanguage, data }) => {
   const [selected, setSelected] = useState();
 
@@ -50,7 +50,7 @@ const PromiceComponent = ({ onChangeLanguage, data }) => {
                 // borderRadius: "200px",
                 padding: "40px",
               }}
-              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-todo-list/check1.webpg"
+              src={image}
               alt="image is not loaded"
             />
           </div>
