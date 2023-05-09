@@ -110,7 +110,7 @@ const Main = ({ data, state, data1 }) => {
   jQuery(document).ready(function () {
     jQuery("#CardId").keypress(function (e) {
       var length = jQuery(this).val().length;
-      if (length > 11) {
+      if (length > 15) {
         return false;
       } else if (
         e.which != 8 &&
