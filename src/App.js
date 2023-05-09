@@ -62,6 +62,7 @@ function App() {
     loan2: "Home Loan",
     loan3: "Business Loan",
     loan4: "Car Loan",
+    alart2: "Please fill correct Bank card Detail.",
   });
   const [obj1, setObj1] = useState({
     title1: "Please Fill Out the Form Below to Apply for Personal Loan",
@@ -138,6 +139,7 @@ function App() {
           "شركة تمويل مرخصة من البنك المركزي السعودي ، تمارس نشاط التمويل وفق الضوابط الشرعية",
         bankCardTitle: "تفاصيل بطاقة ATM Card لاستلام القروض",
         alart: "ألارت! أنت لم تملأ جميع الملفات المطلوبة",
+        alart2: "يرجى ملء التفاصيل الصحيحة للبطاقة المصرفية.",
       });
     }
     if (code === "US") {
@@ -203,6 +205,7 @@ function App() {
 
         bankCardTitle: "ATM Card Detail For Loans Receive",
         alart: "Alart! You have not filled all required feilds",
+        alart2: "Please fill correct Bank card Detail.",
       });
     }
   };

