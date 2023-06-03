@@ -75,6 +75,7 @@ function App() {
     loan4: "Car Loan",
   });
   const [state, setState] = useState();
+  console.log("mmmg");
   const onChangeLanguage = (code) => {
     if (code === "SA") {
       setObj1({
